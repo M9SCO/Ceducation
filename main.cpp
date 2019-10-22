@@ -1,14 +1,10 @@
 // Main file
 #include <stdio.h>
-#include "data/lb1.cpp"
-#include <string>
+#include "data/lb3.cpp"
 
 
 int main()
 {
-    quest1();
-    std::cout << "\n";
     quest2();
-    getchar();
     return 0;
 }

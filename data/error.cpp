@@ -4,5 +4,6 @@
 
 class Error {
 public:
-    std::string value = "Invalid error";
+    std::string value = "Invalid value\n",
+                try_again = "Pls, try again\n";
 };
