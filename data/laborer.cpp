@@ -8,6 +8,8 @@
 #include "list"
 #include "iostream"
 
+using namespace std;
+
 float calculate_lab1(int &in){
     float a, b, inp;
     a = 2.7;
@@ -33,3 +35,11 @@ int print(std::string print__){
     std::cout << print__;
     return 0;
 }
+
+void print_for_q7(float a, float x, float z){
+    cout << setw(4) << right << a
+         << setw(5) << right << x
+         << setw(8) << right << z
+         << setw(2) << right << '\n';
+}
+

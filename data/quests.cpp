@@ -12,8 +12,6 @@
 using namespace std;
 
 
-
-
 void quest1() {
     std::cout << "Formula: a^2/(x+2)*e^-(bx^2)+ln(a+bx)\n";
     int x1, x2;
@@ -89,45 +87,86 @@ void quest6() {
          << setw(5) << "|  X"
          << setw(6) << "|  F1"
          << setw(10) << "|   F2   |"
-         << "\n_______________________\n";
+         << "\n";
 
 
     for (i = 1; i < n + 1; i++) {
         x = i * step;
         f1 = sqrt(exp(x) - L);
         f2 = exp(x) * sin(x);
-        cout << setw(1)<< left << '|'
+        cout << setw(1) << left << '|'
              << setw(2) << right << fixed << setprecision(0) << i
-             << setw(1) << left <<  '|'
+             << setw(1) << left << '|'
              << setw(4) << fixed << setprecision(1) << x
              << setw(1) << '|'
              << setw(5) << fixed << setprecision(3) << f1
              << setw(1) << '|'
              << setw(8) << fixed << setprecision(5) << f2
              << setw(1) << '|'
-             << "\n_______________________\n";
+             << "\n";
 
     }
 }
-void quest7() {
-    float a1= 2, a2=2.1, dx1, dx2, x, z1, z2;
-    dx1 = a1/10;
-    dx2 = a2/10;
-    x = dx1;
-    cout << "_______________________\n"
-         << setw(3) << left << "| A"
+
+void quest7(float a = 2) {
+    float dx, x, z;
+    dx = a / 10;
+    x = dx;
+    cout << "__________________\n"
+         << setw(4) << left << "| A"
          << setw(5) << "|  X"
-         << setw(6) << "|  Z"
-         << setw(10) << "|   Z2   |"
-         << "\n_______________________\n";
-    while (0.1 <= x < 0.5){
-        x+=dx1;
-        z1 = a1*(exp(x+2*a1)*exp(-(x-3*a1)));
-        z2 = a2*(exp(x+2*a2)*exp(-(x-3*a2)));
+         << setw(10) << "|   Z   |\n";
+    while (0.1 <= x && x < 0.5) {
+
+        z = a * (exp(x + 2 * a) + exp((x - 3 * a) * -1));
+        print_for_q7(a, x, z);
+        x = x + dx;
     }
-    while (){}
-    while (){}
+    while (x == 0.5) {
+        z = sin(x);
+        print_for_q7(a, x, z);
+        x = x + dx;
+    }
+    while (0.5 < x && x < 1.5) {
+        z = a + a * cos(x + 3 * a);
+        print_for_q7(a, x, z);
+        x = x + dx;
+    }
+    if (a == 2) {
+        quest7(2.1);
+    }
+
+}
+
+void quest8() {
+    quest6();
+
+    float f1, f2, step, a = -4, b = 4, n = 20, i=1, x, l;
+    step = (a - b) / n;
+    cout << "_______________________\n"
+         << setw(3) << left << "| I"
+         << setw(5) << "|  X"
+         << setw(6) << "|  F1"
+         << setw(10) << "|   F2   |"
+         << "\n";
 
 
+    while (i <= n) {
+        x = i * step;
+        f1 = sqrt(exp(x) - l);
+        f2 = exp(x) * sin(x);
+        cout << setw(1) << left << '|'
+             << setw(2) << right << fixed << setprecision(0) << i
+             << setw(1) << left << '|'
+             << setw(4) << fixed << setprecision(1) << x
+             << setw(1) << '|'
+             << setw(5) << fixed << setprecision(3) << f1
+             << setw(1) << '|'
+             << setw(8) << fixed << setprecision(5) << f2
+             << setw(1) << '|'
+             << "\n";
+        i+=1;
+
+    }
 
 }
