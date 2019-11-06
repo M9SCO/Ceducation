@@ -1,0 +1,79 @@
+// ConsoleApplication1.cpp: определяет точку входа для консольного приложения.
+//
+
+#include <stdio.h>
+
+#include <math.h>
+
+#include "stdafx.h"
+#include "conio.h"
+#include "iostream"
+#include <iomanip>
+using namespace std;
+
+
+void quest6(int ZzZ = 0, int X = 9999, int I = 999) {
+	float f1, f2, step, a = -4, b = 4, n = 20, i, x, L=1;
+	step = fabs((a - b) / n);
+	if (ZzZ == 0){
+		cout << "_________________________________________\n"
+			<< setw(3) << left << "| I"
+			<< setw(5) << "|  X"
+			<< setw(16) << "|       F1"
+			<< setw(15) << "|       F2      |"
+			<< "\n";
+	}
+	if (ZzZ == 0){ x = a; }
+	else (x = X);
+
+
+	for (i = 0; i < n + 1; i++) {	
+		
+		f1 = x*x*x*exp(2*x);
+		f2 = exp(x) * sin(x);
+		cout << setw(1) << left << '|'
+			<< setw(2) << right << fixed << setprecision(0) << i
+			<< setw(1) << left << '|'
+			<< setw(4) << fixed << setprecision(1) << x
+			<< setw(1) << '|'
+			<< setw(15) << fixed << setprecision(3) << f1
+			<< setw(1) << '|'
+			<< setw(15) << fixed << setprecision(5) << f2
+			<< setw(1) << '|'
+			<< "\n";
+		x +=  step;
+		if (ZzZ != 0){
+			break;
+		}
+
+		
+	}
+}
+
+
+void quest8() {
+	//quest6();
+	float f1, f2, step, a = -4, b = 4, n = 20, i = 1, x = a;
+	step = fabs((a - b) / n);
+	cout << "_________________________________________\n"
+		<< setw(3) << left << "| I"
+		<< setw(5) << "|  X"
+		<< setw(16) << "|       F1"
+		<< setw(15) << "|       F2      |"
+		<< "\n";
+	while (x >= -4 && x < 4) {
+		quest6(1, x, i);
+		x += step;
+		i += 1;
+
+	}
+}
+
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+
+	quest8();
+	_getch();
+	return 0;
+}
