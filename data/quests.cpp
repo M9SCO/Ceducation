@@ -4,6 +4,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <string>
+#include <cmath>
 #include "list"
 #include "iostream"
 #include "error.cpp"
@@ -80,30 +81,16 @@ void quest5() {
 }
 
 void quest6() {
-    float f1, f2, step, a = -4, b = 4, n = 20, i, x, L;
-    step = (a - b) / n;
-    cout << "_______________________\n"
-         << setw(3) << left << "| I"
-         << setw(5) << "|  X"
-         << setw(6) << "|  F1"
-         << setw(10) << "|   F2   |"
-         << "\n";
-
-
-    for (i = 1; i < n + 1; i++) {
-        x = i * step;
-        f1 = sqrt(exp(x) - L);
+    float f1, f2, step, a = -4, b = 4, n = 20, x;
+    int i;
+    step = abs(a - b) / (n - 1);
+    print_logo_for_q6_8_9();
+    x = a;
+    for (i = 0; i < n; i++) {
+        f1 = x * x * x * exp(2 * x);
         f2 = exp(x) * sin(x);
-        cout << setw(1) << left << '|'
-             << setw(2) << right << fixed << setprecision(0) << i
-             << setw(1) << left << '|'
-             << setw(4) << fixed << setprecision(1) << x
-             << setw(1) << '|'
-             << setw(5) << fixed << setprecision(3) << f1
-             << setw(1) << '|'
-             << setw(8) << fixed << setprecision(5) << f2
-             << setw(1) << '|'
-             << "\n";
+        print_table_for_q6_8_9(i, x, f1, f2);
+        x += step;
 
     }
 }
@@ -139,34 +126,46 @@ void quest7(float a = 2) {
 }
 
 void quest8() {
-    quest6();
-
-    float f1, f2, step, a = -4, b = 4, n = 20, i=1, x, l;
-    step = (a - b) / n;
-    cout << "_______________________\n"
-         << setw(3) << left << "| I"
-         << setw(5) << "|  X"
-         << setw(6) << "|  F1"
-         << setw(10) << "|   F2   |"
-         << "\n";
-
-
+    float f1, f2, step, a = -4, b = 4, x;
+    int i = 1, n = 20;
+    step = abs(a - b) / (n - 1);
+    print_logo_for_q6_8_9();
+    x = a;
     while (i <= n) {
-        x = i * step;
-        f1 = sqrt(exp(x) - l);
+        f1 = x * x * x * exp(2 * x);
         f2 = exp(x) * sin(x);
-        cout << setw(1) << left << '|'
-             << setw(2) << right << fixed << setprecision(0) << i
-             << setw(1) << left << '|'
-             << setw(4) << fixed << setprecision(1) << x
-             << setw(1) << '|'
-             << setw(5) << fixed << setprecision(3) << f1
-             << setw(1) << '|'
-             << setw(8) << fixed << setprecision(5) << f2
-             << setw(1) << '|'
-             << "\n";
-        i+=1;
+        print_table_for_q6_8_9(i, x, f1, f2);
+        x += step;
+        i += 1;
 
     }
+}
+
+void quest9() {
+    float f1, f2, step, a = -4, b = 4, x;
+    int i = 1, n = 20;
+    step = abs(a - b) / (n - 1);
+    print_logo_for_q6_8_9();
+    x = a;
+    do {
+        f1 = x * x * x * exp(2 * x);
+        f2 = exp(x) * sin(x);
+        print_table_for_q6_8_9(i, x, f1, f2);
+        x += step;
+        i += 1;
+    } while (i < n || i == n);
+}
+
+void quest10() {
+    int i = 0;
+    float x, max_min = pow(10, -3), X;
+    cout << "send x: ";
+    cin >> X;
+    x = X;
+    do {
+        x = sin(x);
+        i += 1;
+    } while (abs(x) > max_min || abs(x) == max_min);
+    cout << "position while abs(" << X << ")<" << max_min << ": " << i;
 
 }
