@@ -50,26 +50,28 @@ int main() {
             for (z = 0; z < lab_size; z++) {
                 cout << z << ". " << listquestions.at(_quests - 1).at(z) << "\n";
             }
-            cout << ">:";
-            cin >> target_quest;
+            while(not valid_target_quest) {
+                cout << ">:";
+                cin >> target_quest;
+                if (target_quest == 0) { cout << ""; valid_target_quest= true;}
+                else if (_quests == 1 && target_quest == 1) { quest1(); valid_target_quest= true;}
+                else if (_quests == 1 && target_quest == 2) { quest2(); valid_target_quest= true;}
 
-            if (target_quest == 0) { cout << " "; }
-            else if (_quests == 1 && target_quest == 1) { quest1(); }
-            else if (_quests == 1 && target_quest == 2) { quest2(); }
+                else if (_quests == 2 && target_quest == 1) { quest3(); valid_target_quest= true;}
+                else if (_quests == 2 && target_quest == 2) { quest4(); valid_target_quest= true;}
 
-            else if (_quests == 2 && target_quest == 1) { quest3(); }
-            else if (_quests == 2 && target_quest == 2) { quest4(); }
+                else if (_quests == 3 && target_quest == 1) { quest5(); valid_target_quest= true;}
+                else if (_quests == 3 && target_quest == 2) { quest6(); valid_target_quest= true;}
 
-            else if (_quests == 3 && target_quest == 1) { quest5(); }
-            else if (_quests == 3 && target_quest == 2) { quest6(); }
+                else if (_quests == 4 && target_quest == 1) { quest7(); valid_target_quest= true;}
+                else if (_quests == 4 && target_quest == 2) { quest8(); valid_target_quest= true;}
 
-            else if (_quests == 4 && target_quest == 1) { quest7(); }
-            else if (_quests == 4 && target_quest == 2) { quest8(); }
-
-            else if (_quests == 5 && target_quest == 1) { quest9(); }
-            else if (_quests == 5 && target_quest == 2) { quest10(); }
-
-
+                else if (_quests == 5 && target_quest == 1) { quest9(); valid_target_quest= true;}
+                else if (_quests == 5 && target_quest == 2) { quest10(); valid_target_quest= true;}
+                if (not valid_target_quest){
+                    cout << "not found this quest\n\nTry again.";
+                }
+            }
         }
         //geth()
         cout << "\n\n~~~~~~~~~~\n";
