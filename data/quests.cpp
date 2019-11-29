@@ -12,7 +12,7 @@
 
 using namespace std;
 
-
+// lab_1
 void quest1() {
     std::cout << "Formula: a^2/(x+2)*e^-(bx^2)+ln(a+bx)\n";
     int x1, x2;
@@ -45,6 +45,7 @@ void quest2() {
     std::cout << cours_h;
 }
 
+// lab_2
 void quest3() {
     float a = 1.8, b = -0.5, c = 3.5, x, y;
     std::cout << "value:";
@@ -68,6 +69,7 @@ void quest4() {
     std::cout << "Tebe " << z << " " << end;
 }
 
+// lab_3
 void quest5() {
 
     float x, z = 1;
@@ -95,6 +97,7 @@ void quest6() {
     }
 }
 
+// lab_4
 void quest7(float a = 2) {
     float dx, x, z;
     dx = a / 10;
@@ -141,6 +144,7 @@ void quest8() {
     }
 }
 
+// lab_5
 void quest9() {
     float f1, f2, step, a = -4, b = 4, x;
     int i = 1, n = 20;
@@ -167,5 +171,25 @@ void quest10() {
         i += 1;
     } while (abs(x) > max_min || abs(x) == max_min);
     cout << "position while abs(" << X << ")<" << max_min << ": " << i;
+}
 
+void quest11() {
+    float f1, f2, step, a = -4, b = 4, x;
+    int i = 1, n = 20;
+    step = abs(a - b) / (n - 1);
+    print_logo_for_q6_8_9();
+    x = a;
+    do {
+        f1 = x * x * x * exp(2 * x);
+        f2 = exp(x) * sin(x);
+        print_table_for_q6_8_9(i, x, f1, f2);
+        x += step;
+        i += 1;
+    }
+    while (i <= n);
+}
+
+// lab_6
+void quest12(){
+// где-то ттут не стало лень
 }
