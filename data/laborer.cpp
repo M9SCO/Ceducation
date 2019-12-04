@@ -57,7 +57,7 @@ void print_table_for_q6_8_9(int i, float x, float f1, float f2) {
     cout << setw(1) << left << '|'
          << setw(3) << right << fixed << setprecision(0) << i
          << setw(1) << left << '|'
-         << setw(5) << fixed << setprecision(1) << x
+         << setw(5) << right<<fixed << setprecision(1) << x
          << setw(1) << '|'
          << setw(15) << fixed << setprecision(3) << f1
          << setw(1) << '|'

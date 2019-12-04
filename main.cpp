@@ -18,14 +18,16 @@ int main() {
 
     while (not its_time) {
 
-        int total_labs = 5, target_laboratory, target_quests = -1, lab_size = -1;
+        int total_labs = 7, target_laboratory, target_quests = -1, lab_size = -1;
         cout << "\nEnter the lab number:\n"
                 "0.Exit code\n"
                 "1.Basic programming in C++.\n"
                 "2.Programming of branched algorithms.\n"
                 "3.Programming of cyclic algorithms with the specified number of repetitions.\n"
                 "4.Programming cyclic algorithms with a precondition\n"
-                "5.Programming of cyclic algorithms with postcondition\n";
+                "5.Programming of cyclic algorithms with postcondition\n"
+                "6.Programming algorithms for processing one-dimensional arrays\n"
+                "7.Programming algorithms for processing two-dimensional arrays\n";
 
         cout << ">:";
         cin >> target_laboratory;
@@ -64,7 +66,19 @@ int main() {
                         << "1.Modify the 3_2 program to compute functions F1(x) and F2 (x) using a loop operator with a postcondition. Perform it and compare the results with those obtained earlier.\n"
                            "2.Draw a block diagram of the algorithm, write and debug a program for one of the following tasks.\n"
                            "3.Modify the program 4_1 using the loop operator with the postcondition do ... while and compare with the results obtained in work 4.\n";
+            } else if (target_laboratory == 6) {
+                lab_size = 3;
+                cout << "1.Draw a block diagram of the algorithm, write and debug a program for one of the following tasks. Source arrays are defined by typed constants.\n"
+                        "2.Draw a block diagram of the algorithm, write and debug a program for one of the following tasks. The elements of the original arrays are entered through the input operator.\n"
+                        "3.Modify the 3_2 program for functions F1(x) and F2 (x) so that the results are formed as three one-dimensional arrays. Perform it and compare the results with those obtained in laboratory work 3 and 4\n";
+            } else if (target_laboratory == 7) {
+                lab_size = 3;
+                cout << "1.Formulate two-dimensional arrays\n"
+                        "2.Formulate the table of Pythagoras\n"
+                        "3.Modify the program 6_3 so that the values of X, F1 and F2 are represented by a two-dimensional array consisting of three rows.\n";
             }
+
+
 
             cout << ">:";
             cin >> target_quests;
@@ -82,14 +96,20 @@ int main() {
             else if (target_laboratory == 3) { quest5(); }
             else if (target_laboratory == 4) { quest7(); }
             else if (target_laboratory == 5) { quest9(); }
+            else if (target_laboratory == 6) { quest12(); }
+            else if (target_laboratory == 7) { quest15(); }
         } else if (target_quests == 2) {
             if (target_laboratory == 1) { quest2(); }
             else if (target_laboratory == 2) { quest4(); }
             else if (target_laboratory == 3) { quest6(); }
             else if (target_laboratory == 4) { quest8(); }
             else if (target_laboratory == 5) { quest10(); }
+            else if (target_laboratory == 6) { quest13(); }
+            else if (target_laboratory == 7) { quest16(); }
         } else if (target_quests == 3) {
             if (target_laboratory == 5) { quest11(); }
+            if (target_laboratory == 6) { quest14(); }
+            if (target_laboratory == 7) { quest17(); }
         }
 
         //geth()

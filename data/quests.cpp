@@ -185,11 +185,110 @@ void quest11() {
         print_table_for_q6_8_9(i, x, f1, f2);
         x += step;
         i += 1;
-    }
-    while (i <= n);
+    } while (i <= n);
 }
 
 // lab_6
-void quest12(){
-// где-то ттут не стало лень
+void quest12() {
+
+    int a[10] = {3352, 3278, 4342, 2320, 381, 1964, 4981, 2849, 1581, 775};
+    int i;
+    float average, n = 0, sum = 0;
+
+    for (i = 0; i < 10; i++) {
+        if (a[i] % 2 == 1) {
+            sum += a[i];
+            n += 1;
+        }
+    }
+    average = sum / n;
+    cout << "Average sum between odd num in array = " << average << " and all sum =" << sum << "\n";
 }
+
+void quest13() {
+    int a[11], i;
+    float average, n = 0, sum = 0;
+    cout << "Send 11 elemets into array\n";
+    for (i = 0; i < 11; i++) {
+        cin >> a[i];
+        if (a[i] % 2 == 1) {
+            sum += a[i];
+            n += 1;
+        }
+    }
+    average = sum / n;
+    cout << "\n\nAverage sum between odd num in array = " << average << " and all sum =" << sum << "\n";
+
+}
+
+void quest14() {
+    int i, total_steps = 20;
+    float array1_[total_steps], array2_[total_steps], step, a = -4, b = 4, x;
+
+    step = abs(a - b) / (total_steps - 1);
+    print_logo_for_q6_8_9();
+    x = a;
+    for (i = 0; i < total_steps; i++) {
+        array1_[i] = x * x * x * exp(2 * x);
+        array2_[i] = exp(x) * sin(x);
+        print_table_for_q6_8_9(i, x, array1_[i], array2_[i]);
+        x += step;
+
+    }
+}
+
+//lab 7
+
+void quest15() {
+    int i, n, a[5][5], dump = 1;
+
+    for (i = 0; i < 5; i++) {
+        cout << "| ";
+        for (n = 0; n < 5; n++) {
+            if (dump == 6) {
+                dump = 1;
+            }
+            a[i][n] = dump;
+            dump += 1;
+            cout << a[i][n] << " ";
+
+        }
+        cout << "|\n";
+        dump -= 1;
+
+
+    }
+}
+
+void quest16() {
+    int i, n;
+
+    for (i = 1; i < 10; i++) {
+        cout << "|";
+        for (n = 1; n < 10; n++) {
+            cout << setw(2) << i * n << setw(1) << "|";
+        }
+        cout << "\n";
+
+
+    }
+}
+
+void quest17() {
+
+    int i, total_steps = 20;
+    float common_array[total_steps][3], step, a = -4, b = 4, x;
+
+    step = abs(a - b) / (total_steps - 1);
+    print_logo_for_q6_8_9();
+    common_array[0][0] = a;
+    for (i = 0; i < total_steps; i++) {
+        common_array[i][1] = pow(common_array[0][0], 3) * exp(2 * common_array[0][0]);
+        common_array[i][2] = exp(common_array[0][0]) * sin(common_array[0][0]);
+        print_table_for_q6_8_9(i, common_array[0][0], common_array[i][1], common_array[i][2]);
+        common_array[0][0] += step;
+
+    }
+
+}
+
